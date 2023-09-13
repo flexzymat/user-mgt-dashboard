@@ -1,5 +1,5 @@
 <div mat-dialog-title>
-    <h1 class="usr-form">User Form</h1>
+    <h1 class="usr-form">{{headerText}}</h1>
 </div>
 <form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
     <div mat-dialog-content>
@@ -31,6 +31,6 @@
     </div>
     <div mat-dialog-actions>
         <button mat-raised-button class="cancel">Cancel</button>
-        <button mat-raised-button color="primary" type="submit" >Save</button>
+        <button mat-raised-button color="primary" type="submit" >{{actionBtn}}</button>
     </div>
 </form>

@@ -5,6 +5,7 @@ import { UserService } from './services/user.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import { DeleteModalComponent } from './delete-modal/delete-modal.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -25,6 +26,7 @@ export class AppComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  userData: any = {}
 
   constructor(private dialog: MatDialog, private userService: UserService) {}
 
@@ -32,8 +34,28 @@ export class AppComponent implements OnInit {
     this.getUserLIst()
   }
 
-  openAddEditForm() {
-    this.dialog.open(AddEditComponent)
+  openAddEditForm(action: string,id:any) {
+    const dialogRef = this.dialog.open(AddEditComponent,{
+      data: {
+        data: action=='create'?'':this.userData,
+        action: action,
+        id:id
+      } 
+    })
+
+    dialogRef.afterClosed().subscribe((result: any)=>{
+      this.getUserLIst()
+    })
+  }
+
+  openDeleteModal(id:any) {
+    const dialogRef = this.dialog.open(DeleteModalComponent,{
+      data:id
+    })
+
+    dialogRef.afterClosed().subscribe((result: any)=>{
+      this.getUserLIst()
+    })
   }
 
   getUserLIst() {
@@ -45,6 +67,19 @@ export class AppComponent implements OnInit {
       },
       error: console.log,
     });
+  }
+
+  getUserById(id: any) {
+    this.userService.getSingleUser(id).subscribe({
+      next: (res: any)=> {
+        this.userData = res
+        this.openAddEditForm('edit',id)
+      },
+      error: (err: any)=> {
+        console.log(err);
+        
+      }
+    })
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -58,7 +93,8 @@ export class AppComponent implements OnInit {
   deleteUser(id: number) {
     this.userService.deleteUser(id).subscribe({
       next: (res) =>{
-        alert('User deleted')
+        // alert('User deleted')
+        this.getUserLIst()
       },
       error: console.log,
     })

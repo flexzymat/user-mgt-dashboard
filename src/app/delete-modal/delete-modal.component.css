@@ -1,0 +1,9 @@
+.can-del-btn{
+    padding-top: 10px;
+    font-weight: bold ;
+    justify-content: center;
+}
+.spinner-border{
+    height: 15px;
+    width: 15px;
+}
