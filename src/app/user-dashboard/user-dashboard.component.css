@@ -1,0 +1,58 @@
+/* .card{
+    padding: 6px 48px;
+}
+
+.clientTable{
+    border-collapse: collapse;
+    width: 95%;
+    margin: 0px;
+    justify-content: space-between;
+    
+}
+
+.table-details{
+    padding: 0px 70px;
+}
+
+.table td {
+    border-bottom: 1px solid #dee2e6 !important;
+    padding: 20px 0px !important;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #6E6B7B;
+}
+
+
+.table td span {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: #296CF0;
+}
+
+table .dropdown-menu {
+    position: absolute;
+    left: 57% !important;
+}
+
+tr td:first-child,
+tr td:last-child,
+tr th:first-child,
+tr th:last-child{
+    padding: 22px 32px !important;
+}
+tr {
+    cursor: pointer;
+}
+tr:hover {
+    cursor: pointer;
+    background: #fdf6ea;
+    border-left: 3px solid #dda43c;
+} */
+
+/* .example-spacer {
+    flex: 1 1 auto;
+  } */

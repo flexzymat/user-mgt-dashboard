@@ -1,0 +1,36 @@
+<div mat-dialog-title>
+    <h1 class="usr-form">User Form</h1>
+</div>
+<form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>First Name</mat-label>
+                <input matInput type="text" placeholder="First Name" formControlName="firstName">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input matInput type="text" placeholder="Last Name" formControlName="lastName">
+              </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Input Email</mat-label>
+                <input matInput placeholder="Email" formControlName="email">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Role</mat-label>
+                <mat-select formControlName="role">
+                    <mat-option *ngFor="let role of user" [value]="role">{{role}}
+                    </mat-option>
+                </mat-select>    
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-raised-button class="cancel">Cancel</button>
+        <button mat-raised-button color="primary" type="submit" >Save</button>
+    </div>
+</form>

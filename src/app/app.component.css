@@ -1,0 +1,38 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+.toolbar{
+  background-color: orange;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+
+}
+.raised-button{
+  background-color: whitesmoke;
+  color: orange;
+  font-size: medium;
+  font-family: 'Courier New', Courier, monospace;
+  width: 15%;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+.main-table{
+  padding-top: 20px;
+  margin: 0 auto;
+  max-width: 1148px;
+.form-field {
+    width: 100%;
+    background-color: whitesmoke;
+  }
+}
