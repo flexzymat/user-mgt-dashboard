@@ -6,20 +6,23 @@
         <div class="row">
             <mat-form-field appearance="outline">
                 <mat-label>Name</mat-label>
-                <input matInput type="text" placeholder="Name" name="name" [(ngModel)]="users.name" #name="ngModel">
+                <input matInput type="text" class="form-control" required placeholder="Name" name="name" [(ngModel)]="users.name" #name="ngModel">
             </mat-form-field>
+            <small class="animation fadeIn text-danger" [class.d-none]="name.valid || name.untouched">This field is required</small>
         </div>
         <div class="row">
             <mat-form-field appearance="outline">
                 <mat-label>Input Email</mat-label>
-                <input matInput placeholder="Email" name="email" [(ngModel)]="users.email" #email="ngModel">
+                <input matInput class="form-control" required placeholder="Email" name="email" [(ngModel)]="users.email" #email="ngModel">
             </mat-form-field>
+            <small class="animation fadeIn text-danger" [class.d-none]="name.valid || name.untouched">This field is required</small>
         </div>
         <div class="row">
             <mat-form-field appearance="outline">
                 <mat-label>Role</mat-label>
-                <input matInput placeholder="Role" name="role" [(ngModel)]="users.company.bs" #role="ngModel">
+                <input matInput class="form-control" required placeholder="Role" name="role" [(ngModel)]="users.company.bs" #role="ngModel">
             </mat-form-field>
+            <small class="animation fadeIn text-danger" [class.d-none]="name.valid || name.untouched">This field is required</small>
         </div>
     </div>
     <div mat-dialog-actions>
