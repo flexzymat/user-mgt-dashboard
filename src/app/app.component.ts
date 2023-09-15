@@ -15,9 +15,7 @@ export class AppComponent implements OnInit {
   title = 'user-mgt-dashboard';
 
   displayedColumns: string[] = [
-    'id', 
     'firstName',
-    'lastName', 
     'email', 
     'role',
     'action'
@@ -36,6 +34,7 @@ export class AppComponent implements OnInit {
 
   openAddEditForm(action: string,id:any) {
     const dialogRef = this.dialog.open(AddEditComponent,{
+      width: '500px',
       data: {
         data: action=='create'?'':this.userData,
         action: action,
@@ -76,7 +75,7 @@ export class AppComponent implements OnInit {
         this.openAddEditForm('edit',id)
       },
       error: (err: any)=> {
-        console.log(err);
+        // console.log(err);
         
       }
     })
@@ -93,7 +92,7 @@ export class AppComponent implements OnInit {
   deleteUser(id: number) {
     this.userService.deleteUser(id).subscribe({
       next: (res) =>{
-        // alert('User deleted')
+        alert('User deleted')
         this.getUserLIst()
       },
       error: console.log,

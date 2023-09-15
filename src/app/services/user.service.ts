@@ -1,27 +1,30 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { User } from '../interface/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
+  url = environment.baseUrl
   constructor(private http: HttpClient) { }
 
-  addUser(data: any): Observable<any> {
-    return this.http.post('http://localhost:3000/users', data);
+  addUser(data: any): Observable<User> {
+    return this.http.post<User>(`${this.url}`, data);
   }
-  getUserList(): Observable<any> {
-    return this.http.get('http://localhost:3000/users');
+  getUserList(): Observable<User> {
+    return this.http.get<User>(`${this.url}`);
   } 
   getSingleUser(id: number): Observable<any> {
-    return this.http.get(`http://localhost:3000/users/${id}`)
+    return this.http.get(`${this.url}/${id}`)
   } 
   deleteUser(id: number): Observable<any> {
-    return this.http.delete(`http://localhost:3000/users/${id}`)
+    return this.http.delete(`${this.url}/${id}`)
   } 
   editUser(data: any,id: any): Observable<any> {
-    return this.http.put(`http://localhost:3000/users/${id}`, data);
+    return this.http.put(`${this.url}/${id}`, data);
   }
 }
